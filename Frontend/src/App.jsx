@@ -8,7 +8,7 @@ function App() {
   const [editId, setEditId] = useState(null);
 
   const fetchTasks = async () => {
-    const res = await axios.get("http://localhost:1001/api/tasks");
+    const res = await axios.get("https://note-keeper-0a75.onrender.com/api/tasks");
     setTasks(res.data);
   };
   useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
     if (task === "") {
       return;
     }
-    await axios.post("http://localhost:1001/api/tasks", {
+    await axios.post("https://note-keeper-0a75.onrender.com/api/tasks", {
       title: task,
     });
     setTask("");
@@ -27,7 +27,7 @@ function App() {
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:1001/api/tasks/${id}`);
+    await axios.delete(`https://note-keeper-0a75.onrender.com/api/tasks/${id}`);
     fetchTasks();
   };
   // PUT
@@ -37,7 +37,7 @@ function App() {
   };
 
   const updateTask = async () => {
-    await axios.put(`http://localhost:1001/api/tasks/${editId}`, {
+    await axios.put(`https://note-keeper-0a75.onrender.com/api/tasks/${editId}`, {
       title: task,
     });
     setTask("");
